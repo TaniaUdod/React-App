@@ -6,7 +6,6 @@ import {
   Patch,
   Param,
   Delete,
-  Query,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
@@ -18,35 +17,36 @@ import { UpdateTaskColumnDto } from './dto/update-task-column.dto';
 export class TaskColumnController {
   constructor(private readonly taskColumnService: TaskColumnService) {}
 
-  @Post()
+  @Post(':taskListId')
   @UsePipes(new ValidationPipe())
   create(
     @Body() createTaskColumnDto: CreateTaskColumnDto,
-    @Query('id') id: string,
+    @Param('taskListId') taskListId: number,
   ) {
-    return this.taskColumnService.create(createTaskColumnDto, +id);
+    return this.taskColumnService.create(createTaskColumnDto, taskListId);
   }
 
   @Get()
-  findAll(@Query('id') id: string) {
-    return this.taskColumnService.findAll(+id);
+  findAll(@Param('taskListId') taskListId: number) {
+    return this.taskColumnService.findAll(taskListId);
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.taskColumnService.findOne(+id);
+  findOne(@Param('id') id: number) {
+    return this.taskColumnService.findOne(id);
   }
 
   @Patch(':id')
+  @UsePipes(new ValidationPipe())
   update(
-    @Param('id') id: string,
+    @Param('id') id: number,
     @Body() updateTaskColumnDto: UpdateTaskColumnDto,
   ) {
-    return this.taskColumnService.update(+id, updateTaskColumnDto);
+    return this.taskColumnService.update(id, updateTaskColumnDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.taskColumnService.remove(+id);
+  remove(@Param('id') id: number) {
+    return this.taskColumnService.remove(id);
   }
 }

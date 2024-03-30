@@ -16,7 +16,7 @@ export class TaskCard {
   id: number;
 
   @Column()
-  name: string;
+  title: string;
 
   @Column()
   description: string;
@@ -33,7 +33,7 @@ export class TaskCard {
 
   @ManyToOne(() => TaskColumn, (taskColumn) => taskColumn.taskCards)
   @JoinColumn({ name: 'taskColumn_id' })
-  taskColumns: TaskColumn[];
+  taskColumn: TaskColumn;
 
   @CreateDateColumn()
   createdAt: Date;

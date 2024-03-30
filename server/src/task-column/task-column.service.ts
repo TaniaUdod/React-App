@@ -16,25 +16,28 @@ export class TaskColumnService {
     private readonly taskColumnRepository: Repository<TaskColumn>,
   ) {}
 
-  async create(createTaskColumnDto: CreateTaskColumnDto, id: number) {
+  async create(createTaskColumnDto: CreateTaskColumnDto, taskListId: number) {
     const isExist = await this.taskColumnRepository.findOne({
       where: {
-        taskList: { id },
+        taskList: { id: taskListId },
         title: createTaskColumnDto.title,
       },
     });
 
     if (isExist) throw new BadRequestException('This title already exist!');
 
-    const column = { title: createTaskColumnDto.title, taskList: { id } };
+    const column = {
+      title: createTaskColumnDto.title,
+      taskList: { id: taskListId },
+    };
 
     return await this.taskColumnRepository.save(column);
   }
 
-  async findAll(id: number) {
+  async findAll(taskListId: number) {
     return await this.taskColumnRepository.find({
       where: {
-        taskList: { id },
+        taskList: { id: taskListId },
       },
       relations: { taskCards: true },
     });
@@ -43,7 +46,6 @@ export class TaskColumnService {
   async findOne(id: number) {
     const column = await this.taskColumnRepository.findOne({
       where: { id },
-
       relations: { taskList: true, taskCards: true },
     });
 
@@ -53,10 +55,7 @@ export class TaskColumnService {
   }
 
   async update(id: number, updateTaskColumnDto: UpdateTaskColumnDto) {
-    const column = await this.taskColumnRepository.findOne({
-      where: { id },
-      relations: { taskList: true, taskCards: true },
-    });
+    const column = await this.taskColumnRepository.findOne({ where: { id } });
 
     if (!column) throw new NotFoundException('Column not found!');
 

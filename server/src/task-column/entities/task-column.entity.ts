@@ -6,6 +6,7 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -22,7 +23,7 @@ export class TaskColumn {
   @JoinColumn({ name: 'taskList_id' })
   taskList: TaskList;
 
-  @ManyToOne(() => TaskCard, (taskCard) => taskCard.taskColumns)
+  @OneToMany(() => TaskCard, (taskCard) => taskCard.taskColumn)
   @JoinColumn({ name: 'taskCard_id' })
   taskCards: TaskCard[];
 
