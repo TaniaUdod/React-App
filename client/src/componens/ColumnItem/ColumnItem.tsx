@@ -30,7 +30,13 @@ const ColumnItem: FC<ColumnItemProps> = ({ column }) => {
           <MoreVertIcon />
         </button>
 
-        {isModalOpen && <ModalColumn onClose={toggleModal} />}
+        {isModalOpen && (
+          <ModalColumn
+            onClose={toggleModal}
+            columnId={column.id}
+            initialColumnName={column.title}
+          />
+        )}
       </div>
 
       <div>

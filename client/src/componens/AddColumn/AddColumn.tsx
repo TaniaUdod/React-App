@@ -9,7 +9,7 @@ interface AddColumnProps {
 const AddColumn: FC<AddColumnProps> = ({ click }) => {
   return (
     <div>
-      <button onClick={click} className={css.add_card}>
+      <button onClick={click} className={css.add_column}>
         <AddIcon />
         Add another column
       </button>

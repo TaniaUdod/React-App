@@ -13,6 +13,10 @@
   margin: 0 auto;
 }
 
+.button:hover {
+  background-color: rgb(162, 162, 230);
+}
+
 .wrap {
   margin-bottom: 20px;
 }

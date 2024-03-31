@@ -1,4 +1,4 @@
-.add_column {
+.add_card {
   display: flex;
   gap: 8px;
   justify-content: center;
@@ -17,16 +17,6 @@
   transition: background-color 250ms linear;
 }
 
-.add_column:hover {
+.add_card:hover {
   background-color: rgb(162, 162, 230);
 }
-
-/* .add_card:hover {
-  background-color: ;
-} */
-
-/* @media screen and (max-width: 375px) {
-  .add_card {
-    width: 100%;
-  }
-} */
