@@ -6,10 +6,20 @@ import {
   updateTaskColumn,
 } from "./columnOperation";
 
+interface TaskCard {
+  id: number;
+  title: string;
+  dueDate: Date;
+  description?: string;
+  priority: "low" | "medium" | "high";
+  taskColumnId: number;
+}
+
 interface TaskColumn {
   id: number;
   title: string;
-  taskList: { id: number };
+  taskList: { id: string };
+  cards: TaskCard[];
 }
 
 interface InitialState {

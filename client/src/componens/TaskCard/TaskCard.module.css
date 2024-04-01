@@ -1,0 +1,50 @@
+.main {
+  border: 1px solid rgb(162, 162, 230);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 200px;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.date {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  margin: 10px 0;
+}
+
+.priority {
+  border-radius: 15px;
+  background-color: rgb(216 216 239);
+  display: inline-flex;
+  padding: 4px;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: #101828;
+  background-color: rgb(216 216 239);
+  outline: none;
+  border-radius: 8px;
+  transition: background-color 250ms linear;
+  width: 100%;
+}

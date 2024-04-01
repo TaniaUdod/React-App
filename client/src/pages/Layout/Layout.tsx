@@ -63,8 +63,9 @@ const Layout: FC = () => {
         )}
 
         {boardName ? (
-          /* <TaskBoard boardName={boardName} */
-          <TaskBoard />
+          <>
+            <TaskBoard />
+          </>
         ) : (
           <p className={css.text}>
             Before starting your project, it is essential{" "}

@@ -15,6 +15,7 @@
   outline: none;
   border-radius: 8px;
   transition: background-color 250ms linear;
+  margin-bottom: 15px;
 }
 
 .add_card:hover {

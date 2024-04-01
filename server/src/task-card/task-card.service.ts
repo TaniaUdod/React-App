@@ -30,7 +30,7 @@ export class TaskCardService {
 
     const taskCard = {
       title: createTaskCardDto.title,
-      description: createTaskCardDto.description,
+      description: createTaskCardDto.description || '',
       dueDate: createTaskCardDto.dueDate,
       priority: createTaskCardDto.priority,
       taskColumn: { id: taskColumnId },

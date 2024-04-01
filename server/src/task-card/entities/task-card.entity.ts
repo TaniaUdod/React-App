@@ -27,11 +27,15 @@ export class TaskCard {
   @Column()
   priority: string;
 
-  @ManyToOne(() => TaskList, (taskList) => taskList.taskCards)
+  @ManyToOne(() => TaskList, (taskList) => taskList.taskCards, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({ name: 'taskList_id' })
   taskList: TaskList;
 
-  @ManyToOne(() => TaskColumn, (taskColumn) => taskColumn.taskCards)
+  @ManyToOne(() => TaskColumn, (taskColumn) => taskColumn.taskCards, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({ name: 'taskColumn_id' })
   taskColumn: TaskColumn;
 

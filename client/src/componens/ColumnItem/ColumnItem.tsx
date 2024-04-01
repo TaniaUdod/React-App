@@ -3,6 +3,8 @@ import ModalColumn from "../ModalColumn/ModalColumn";
 import AddCard from "../AddCard/AddCard";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import css from "./ColumnItem.module.css";
+import { useSelector } from "react-redux";
+import { selectTaskCardsByColumnId } from "../../redux/card/cardSelectors";
 
 interface ColumnItemProps {
   column: any;
@@ -10,11 +12,7 @@ interface ColumnItemProps {
 
 const ColumnItem: FC<ColumnItemProps> = ({ column }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isAddCardOpen, setIsAddCardOpen] = useState(false);
-
-  const toggleAddCard = () => {
-    setIsAddCardOpen(!isAddCardOpen);
-  };
+  const cards = useSelector(selectTaskCardsByColumnId(column.id));
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -24,7 +22,7 @@ const ColumnItem: FC<ColumnItemProps> = ({ column }) => {
     <>
       <div className={css.wrap}>
         <h3 className={css.title}>{column.title}</h3>
-        <p>cards</p>
+        <p>{cards ? cards.length : 0}</p>
 
         <button className={css.button} onClick={toggleModal}>
           <MoreVertIcon />
@@ -40,7 +38,7 @@ const ColumnItem: FC<ColumnItemProps> = ({ column }) => {
       </div>
 
       <div>
-        <AddCard onClick={toggleAddCard} />
+        <AddCard columnId={column.id} columnName={column.title} />
       </div>
     </>
   );
