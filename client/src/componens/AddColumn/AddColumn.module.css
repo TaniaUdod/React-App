@@ -1,0 +1,32 @@
+.add_column {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: #101828;
+  cursor: pointer;
+  background-color: rgb(220 220 235);
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  transition: background-color 250ms linear;
+}
+
+.add_column:hover {
+  background-color: rgb(162, 162, 230);
+}
+
+/* .add_card:hover {
+  background-color: ;
+} */
+
+/* @media screen and (max-width: 375px) {
+  .add_card {
+    width: 100%;
+  }
+} */

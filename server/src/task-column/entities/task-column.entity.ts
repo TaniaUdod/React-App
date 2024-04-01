@@ -19,11 +19,15 @@ export class TaskColumn {
   @Column()
   title: string;
 
-  @ManyToOne(() => TaskList, (taskList) => taskList.taskColumns)
+  @ManyToOne(() => TaskList, (taskList) => taskList.taskColumns, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({ name: 'taskList_id' })
   taskList: TaskList;
 
-  @OneToMany(() => TaskCard, (taskCard) => taskCard.taskColumn)
+  @OneToMany(() => TaskCard, (taskCard) => taskCard.taskColumn, {
+    onDelete: 'CASCADE',
+  })
   @JoinColumn({ name: 'taskCard_id' })
   taskCards: TaskCard[];
 
