@@ -10,15 +10,15 @@ This application provides a platform for managing tasks to organize your workflo
 
 ## Technologies Used
 
-NestJS
-PostgreSQL
-TypeORM
-TypeScript
-React
-Redux Toolkit
-React Hook Form
-Axios
-MUI
+- NestJS
+- PostgreSQL
+- TypeORM
+- TypeScript
+- React
+- Redux Toolkit
+- React Hook Form
+- Axios
+- MUI
 
 ## Getting Started
 
